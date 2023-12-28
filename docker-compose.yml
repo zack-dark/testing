@@ -1,14 +1,15 @@
-version: '3'
+version: '3.8'
 
 services:
+
   web:
-    image: main:latest
+    build: .
+    container_name: django
     ports:
-      - "8000:8000"
-#    depends_on:
-#      - db
-    environment:
-      - DJANGO_SETTINGS_MODULE=web.production
-    command: gunicorn web.wsgi:application -b 0.0.0.0:8000
+      - '8000:8000'
+    volumes:
+      - .:/app
 
 
+volumes:
+  pg_data:
