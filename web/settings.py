@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-)#9u_-foz-)4ks@76j8vt(52_t!m$_qd+1pdorg50va^6i()!=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
 
 
 # Application definition
@@ -128,3 +128,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     STATIC_DIR
 ]
+
+
+PORT = int(os.environ.get('PORT', 8000))
+
+ALLOWED_HOSTS = ['*']  # Mettez à jour cela selon vos besoins en termes d'hôtes autorisés
+
+# ...
+
+# Configuration du serveur de développement (à utiliser uniquement en local)
+if DEBUG:
+    # Utilisation du port spécifié
+    RUNSERVERPLUS_SERVER_ADDRESS_PORT = f'0.0.0.0:{PORT}'
